@@ -28,6 +28,40 @@ const slides = [
 	},
 ];
 
+
+// CREATION DOTS // parent
+// chercher element via class dans banner
+let dotsHTML = document.querySelector("#banner .dots");
+let position = 0
+
+// boucle
+for (x = 0; x < slides.length; x++) {
+	// creation div
+	let newDot = document.createElement("div");
+	newDot.setAttribute("class", "dot");
+	newDot.setAttribute("id", "dot" + x);
+	// ajout enfant au parent dotshtml
+	dotsHTML.appendChild(newDot);
+}
+
+// CREATION TABLEAU
+let dots = [];
+
+// boucle
+for (let x = 0; x < slides.length; x++) {
+	let dot = document.getElementById("dot" + x);
+	// PUSH TABLEAU
+	dots.push(dot);
+}
+
+dots[0].setAttribute("class", "dot dot_selected");
+
+// creation image et tagline
+let imageBanniere = document.querySelector(".banner-img");
+let tagline = document.querySelector("#banner p");
+
+
+
 // LEFT *********************************
 // SELECTION 
 
@@ -38,8 +72,8 @@ arrow_left.addEventListener("click", () => {
 		position = slides.length - 1;
 		dots[0].setAttribute("class", "dot");
 	} else {
+		dots[position].setAttribute("class", "dot");
 		position -= 1;
-		dots[position + 1].setAttribute("class", "dot");
 	}
 	console.log(position);
 	dots[position].setAttribute("class", "dot dot_selected");
@@ -61,8 +95,8 @@ arrow_right.addEventListener("click", () => {
 		position = 0;
 		dots[slides.length - 1].setAttribute("class", "dot");
 	} else {
+		dots[position].setAttribute("class", "dot");
 		position += 1;
-		dots[position - 1].setAttribute("class", "dot");
 	}
 	console.log(position);
 	dots[position].setAttribute("class", "dot dot_selected");
@@ -72,56 +106,5 @@ arrow_right.addEventListener("click", () => {
 	// tagLine
 	tagline.innerHTML = slides[position].tagLine;
 
-
-	// if (position == 1) {
-	// console.log("position = 1")
-	// 	dot2.setAttribute("class","dot dot_selected");
-	// 	dot1.setAttribute("class","dot");
-	// 	dots[position].setAttribute("class","dot dot_selected");
-	// 	dots[position-1].setAttribute("class","dot");
-	// } else {
-	// }
 });
-
-
-let imageBanniere = document.querySelector(".banner-img");
-let tagline = document.querySelector("#banner p")
-
-
-// CREATION DOTS
-// parent
-let dotsHTML = document.querySelector("#banner .dots");
-
-let position = 0
-
-// boucle
-for (x = 0; x < slides.length; x++) {
-	let newDot = document.createElement("div");
-	newDot.setAttribute("class", "dot");
-	newDot.setAttribute("id", "dot" + x);
-	dotsHTML.appendChild(newDot);
-}
-
-
-// selec
-let dot0 = document.getElementById("dot0");
-
-let dot1 = document.getElementById("dot1");
-
-let dot2 = document.getElementById("dot2");
-
-let dot3 = document.getElementById("dot3");
-// list
-let dots = [dot0, dot1, dot2, dot3];
-dot0.setAttribute("class", "dot dot_selected");
-
-// creation tableau
-// const tableau
-
-
-for (const x = 0; x < slides.length; x++) {
-	let dot = document.getElementById("dot" + x);
-// Mettre dot dans tableau créé (push) + 
-// faire ligne 116
-}
 
