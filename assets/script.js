@@ -18,14 +18,7 @@ const slides = [
 		"image": "slide4.png",
 		"tagLine": "Autocollants <span>avec découpe laser sur mesure</span>"
 	},
-	{
-		"image": "slide1.jpg",
-		"tagLine": "Impressions tous formats <span>en boutique et en ligne</span>"
-	},
-	{
-		"image": "slide2.jpg",
-		"tagLine": "Tirages haute définition grand format <span>pour vos bureaux et events</span>"
-	},
+
 ];
 
 
@@ -35,7 +28,7 @@ let dotsHTML = document.querySelector("#banner .dots");
 let position = 0
 
 // boucle
-for (x = 0; x < slides.length; x++) {
+for (let x = 0; x < slides.length; x++) {
 	// creation div
 	let newDot = document.createElement("div");
 	newDot.setAttribute("class", "dot");
